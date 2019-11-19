@@ -1,0 +1,21 @@
+<main class="py-5">
+    <section id="listado" class="mb-5">
+        <div class="container">
+            <h2 class="mb-4">Product List</h2>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let product of items.items">
+                    <tr app-product [product]="product">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <app-pagination [quantity]="items.total" (selectedPageEvent)="getProductsFromPage($event)"></app-pagination>
+    </section>
+</main>
